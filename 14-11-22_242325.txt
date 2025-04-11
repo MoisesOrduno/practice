@@ -1,0 +1,137 @@
+EJ1
+-- Create date: <14-11-2022
+-- Description:	Regresa el mayor de 2 numeros
+-- =============================================
+CREATE FUNCTION F_Mayor_Dos_Numeros242325 
+(
+	@Num1 INT,
+	@Num2 INT
+
+)
+RETURNS INT 
+
+AS
+BEGIN
+	DECLARE @Mayor INT;
+
+	IF (@Num1 > @Num2)
+	BEGIN
+		SET @Mayor = @Num1;
+	END
+
+	ELSE 
+		SET @Mayor = @Num2;
+
+			RETURN @Mayor
+
+END
+GO
+
+RESULTADO
+
+DECLARE @M INT;
+EXEC @M = F_Mayor_Dos_Numeros242325
+@Num1 = 5,
+@Num2 = 10
+PRINT @M
+
+
+EJ2
+
+-- Create date: 14-11-2022
+-- Description:	reciba una cadena y devuelva el tamaño
+-- =============================================
+CREATE FUNCTION F_Tamaño242325 
+(
+	@Cadena VARCHAR(100)
+
+
+)
+RETURNS INT 
+
+AS
+BEGIN
+			
+			RETURN LEN(@Cadena)
+
+END
+GO
+
+
+RESULTADO
+
+DECLARE @STR INT
+EXEC @STR = F_Tamaño242325
+	@Cadena = 'Hola'
+PRINT @STR
+
+
+EJ3
+-- =============================================
+-- Author:		Moises Orduño
+-- Create date: <14-11-2022
+-- Description:	CONCatenar cadenas
+-- =============================================
+CREATE FUNCTION F_ConcatCadenas242325 
+(
+	@Cadena1 VARCHAR(100),
+	@Cadena2 VARCHAR(100)
+
+
+)
+RETURNS VARCHAR(200) 
+
+AS
+BEGIN
+			
+			RETURN CONCAT(@Cadena1,@Cadena2)
+
+END
+GO
+
+RESULTADO
+DECLARE @CadenaCompleta VARCHAR(200)
+EXEC @CadenaCompleta = F_ConcatCadenas242325
+@Cadena1 = 'Jesus',
+@Cadena2 = 'Moises'
+PRINT @CadenaCompleta
+
+
+
+
+
+
+
+
+
+EJ4
+-- =============================================
+-- Author:	Moisés Orduño
+-- Create date: 14-11-22
+-- Description:	Regresa el modulo de 2 numeros
+-- =============================================
+CREATE FUNCTION Modulos_Numeros242325
+(
+	@num1 INT, 
+	@num2 INT
+)
+RETURNS INT
+AS
+BEGIN
+	DECLARE @Modulo INT = (@num1 % @num2);
+	RETURN @Modulo 
+
+END
+GO
+
+
+RESULTADO
+
+DECLARE @N1 INT = 9
+DECLARE @N2 INT = 2
+DECLARE @Mod INT
+
+EXEC @Mod = Modulos_Numeros @N1, @N2
+
+PRINT @Mod
+
